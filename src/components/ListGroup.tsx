@@ -1,10 +1,13 @@
 function ListGroup() {
-    const items = [
+    let items = [
         'NewYork',
         'San Francisco',
         'Tokyo',
         'London'
     ]
+    if(items.length ===0){
+        return <p>No</p>
+    }
 
     return (
         <>  {/* Fragment by default */}
