@@ -3,9 +3,10 @@ import { useState } from "react";
 interface ListGroupProps {
     items: string[];
     heading: string;
+    onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: ListGroupProps) {
+function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
     // Hook is a function to tap into built in functions in react
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -17,7 +18,13 @@ function ListGroup({ items, heading }: ListGroupProps) {
             <h1>{heading}</h1>
             {items.length === 0 && <p>No result found</p>} {/*if first is true then the next element will be rendered*/}
             <ul className="list-group">
-                {items.map((item, index) => <li key={item} className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'} onClick={() => { setSelectedIndex(index); }}>{item}</li>)}
+                {items.map((item, index) => <li key={item} className={selectedIndex === index ?
+                    'list-group-item active' : 'list-group-item'} onClick={() => {
+                        setSelectedIndex(index);
+                        onSelectItem(item);
+
+                    }}
+                >{item}</li>)}
             </ul>
         </>
     );
