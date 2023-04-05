@@ -2,10 +2,13 @@ import ListGroup from './components/ListGroup';
 
 function App() {
   // JSX Javascript XML
-  const name = '';
-  if (name)
-    return <h1>Hello {name}</h1>
-  return <div><ListGroup /></div>
+  let items = [
+    'NewYork',
+    'San Francisco',
+    'Tokyo',
+    'London'
+]
+  return <div><ListGroup items={items} heading="Cities" /></div>
 }
 
 export default App;
