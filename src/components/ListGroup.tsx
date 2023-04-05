@@ -5,7 +5,7 @@ interface ListGroupProps {
     heading: string;
 }
 
-function ListGroup(props: ListGroupProps) {
+function ListGroup({ items, heading }: ListGroupProps) {
     // Hook is a function to tap into built in functions in react
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -14,10 +14,10 @@ function ListGroup(props: ListGroupProps) {
 
     return (
         <>  {/* Fragment by default */}
-            <h1>List</h1>
-            {props.items.length === 0 && <p>No result found</p>} {/*if first is true then the next element will be rendered*/}
+            <h1>{heading}</h1>
+            {items.length === 0 && <p>No result found</p>} {/*if first is true then the next element will be rendered*/}
             <ul className="list-group">
-                {props.items.map((item, index) => <li key={item} className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'} onClick={() => { setSelectedIndex(index); }}>{item}</li>)}
+                {items.map((item, index) => <li key={item} className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'} onClick={() => { setSelectedIndex(index); }}>{item}</li>)}
             </ul>
         </>
     );
