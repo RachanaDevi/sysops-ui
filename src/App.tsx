@@ -1,22 +1,31 @@
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateTicketForm from './components/CreateTicketForm';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 
 function App() {
 
-  const handleSelectedItem = (item: string) => {
-    console.log(item);
-  }
-  // JSX Javascript XML
-  let items = [
-    'NewYork',
-    'San Francisco',
-    'Tokyo',
-    'London'
-  ]
-  return <div>
-    {/* <ListGroup items={items} heading="Cities" onSelectItem={handleSelectedItem} /> */}
-    <CreateTicketForm></CreateTicketForm>
-  </div>
+  const [token, setToken] = useState();
+  return (
+    <>
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<RegisterForm />} />
+            <Route path="/createTicket" element={<CreateTicketForm />} />
+          </Routes>
+        </BrowserRouter>
+
+
+      </div>
+    </>
+  )
+
+  // return <div>
+  //   <CreateTicketForm></CreateTicketForm>
+  // </div>
 }
 
 export default App;
