@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Ticket</title>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Create Ticket Form</h1>
+        <form method="POST" action="/createTicket">
+            <div>
+                <label for="concern">Concern</label>
+                <textarea id="concern" rows={3}></textarea>
+            </div>
+            <div>
+                <label for="emailAddress">Email address</label>
+                <input type="text" id="emailAddress" placeholder="name@example.com" />
+            </div>
+
+            <div>
+                <label for="date">Date</label>
+                <input type="date" id="date" placeholder="name@example.com" />
+            </div>
+
+            <div>
+                <label for="time">Time</label>
+                <input type="time" id="time" />
+            </div>
+
+            <div>
+                <label for="productType"></label>
+                <select name="productType" id="productType">
+                    
+                </select>
+             </div>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+        </form>
+
+    </div>
+
+</html>
